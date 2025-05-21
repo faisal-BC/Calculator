@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تحويل السعة في منصة أمن </title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, sans-serif;
+      background-color: #f8f9fa;
+      color: #212529;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+      img.logo {
+          width: 100px;
+          height: 100px;
+          
+          margin-bottom: 2rem;
+      }
+    .container {
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      width: 90%;
+      max-width: 400px;
+    }
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    label, input, button {
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    input, button {
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ced4da;
+      border-radius: 0.5rem;
+    }
+    button {
+      background-color: #198754;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #157347;
+    }
+
+    .result {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #0d6efd;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+    <div>
+        
+        <div class="container">
+            <h1>تحويل سعة العبوة في منصة أمن </h1>
+            <label for="value">أدخل السعة المسجلة على العبوة باللتر:</label>
+            <input type="number" id="value" placeholder="مثال: 1 أو 0.6 أو 1.5 لتر" step="0.01" />
+
+            <button onclick="convert()">عرض النتيجة</button>
+
+            <div class="result" id="result"></div>
+        </div>
+        <div style="margin-top: 2rem; display: flex; justify-content: center;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+               <div><img src="psd.png" alt="شعار الأمن العام" style="width: 100px; height: 100px; " /></div> 
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items:center">
+                    <div>برمجة وتصميم</div>
+                    <div>مقدم / فيصل محمد البارقي</div>
+                    <div>   شرطة منطقة عسير  - 2025 </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <script>
+    function convert() {
+      const value = parseFloat(document.getElementById('value').value);
+      const resultElement = document.getElementById('result');
+
+      if (isNaN(value)) {
+        resultElement.innerText = "الرجاء إدخال قيمة صحيحة.";
+        return;
+      }
+
+      if (Number.isInteger(value)) {
+        resultElement.innerText =' يسجل في منصة امن :         ' + `${value} لتر`;
+      } else {
+        const ml = value * 1000;
+          resultElement.innerText = ' يسجل في منصة امن :      ' + `${ml} ملليلتر`;
+      }
+    }
+  </script>
+</body>
+</html>
